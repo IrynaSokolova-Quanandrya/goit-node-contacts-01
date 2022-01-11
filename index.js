@@ -17,6 +17,7 @@ async function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case 'list':
       const contacts = await contactsOperations.listContacts()
+      console.log(contacts);
       break;
 
     case 'get':
@@ -24,11 +25,12 @@ async function invokeAction({ action, id, name, email, phone }) {
         if(!contactId){
           throw new Error (`Contact with ${id} not found`)
         }
-        
+        console.log(contactId);
       break;
 
     case 'add':
       const newContact = await contactsOperations.addContact(name, email, phone);
+      console.log(newContact);
       break;
 
     case 'remove':
